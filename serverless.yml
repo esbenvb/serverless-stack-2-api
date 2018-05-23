@@ -39,7 +39,8 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+      Resource: 
+        - "Fn::GetAtt": [ NotesTable, Arn ]
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -107,4 +108,7 @@ functions:
 resources:
   #DynamoDB
   - ${file(resources/dynamodb-table.yml)}
+
+  #S3
+  - ${file(resources/s3-bucket.yml)}
 
