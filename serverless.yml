@@ -112,3 +112,5 @@ resources:
   #S3
   - ${file(resources/s3-bucket.yml)}
 
+  #Cognito
+  - #{file(resoures/cognito-user-pool.yml)}
