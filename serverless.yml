@@ -8,6 +8,7 @@ plugins:
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:
+  tableName: ${self:custom.stage}-notes
   stage: ${opt:stage, self:provider.stage}
   tableThroughputs:
     prod: 5
@@ -26,7 +27,8 @@ provider:
   # 'iamRoleStatement' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
   environment:
-    tableName: ${self:custom.tableName}
+    tableName:
+      Ref: NotesTable
 
   iamRoleStatements:
     - Effect: Allow
