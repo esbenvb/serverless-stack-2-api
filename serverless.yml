@@ -30,7 +30,8 @@ provider:
   environment:
     tableName:
       Ref: NotesTable
-
+    stripeSecretKey: ${self:custom.environment.stripeSecretKey}
+  
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -107,6 +108,7 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+          
   billing:
     handler: billing.main
     events:
