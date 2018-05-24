@@ -8,7 +8,7 @@ Resources:
       AutoVerifiedAttributes:
         - email
   CognitoUserPoolClient:
-    Type: AWS::Cognity::UserPoolClient
+    Type: AWS::Cognito::UserPoolClient
     Properties:
       ClientName: ${self:custom.stage}-user-pool-client
       UserPoolId:
